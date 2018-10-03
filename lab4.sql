@@ -4,14 +4,14 @@ CREATE TABLE customers(
   cust_name VARCHAR(255),
   city VARCHAR(255),
   grade INT,
-  salesman_id INT
+  salesman_id INT REFERENCES salesman(salesman_id)
 );
   CREATE TABLE orders(
     ord_no INT PRIMARY KEY,
     purch_amt FLOAT,
     ord_date DATE,
     customer_id INT REFERENCES customers(customer_id),
-    salesman_id INT REFERENCES customers(salesman_id)
+    salesman_id INT REFERENCES salesman(salesman_id)
   );
   CREATE TABLE salesman(
     salesman_id INT PRIMARY KEY,
